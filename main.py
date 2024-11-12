@@ -19,27 +19,24 @@ import requests
 from bs4 import BeautifulSoup
 
 
-import notify
-
-# class notify:
-#     @staticmethod
-#     def send(title, content):
-#         print(f"{title}: {content}")
 
 
-sleep_time = [100, 200]  # 随机等待时间默认在100-200秒之间
+class notify:
+     @staticmethod
+     def send(title, content):
+         print(f"{title}: {content}")
+
+
+sleep_time = [1, 2]  # 随机等待时间默认在100-200秒之间
 # 多cookie使用&分割
-token = os.environ.get("PJ52_TOKEN")
-if not token:
-    print("请在环境变量填入PJ52_TOKEN的值")
-    sys.exit()
 
 cookies = ''
 if cookies == "":
-    if os.environ.get("PJ52_COOKIE"):
-        cookies = os.environ.get("PJ52_COOKIE")
-    else:
-        print("请在环境变量填写PJ52_COOKIE的值")
+    # 尝试从环境变量中获取Cookie
+    cookies = os.environ.get("PJ52_COOKIE")
+
+    if not cookies:
+        print("请在环境变量中填写PJ52_COOKIE的值")
         sys.exit()
 n = 1
 for cookie in cookies.split("&"):
