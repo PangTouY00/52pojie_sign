@@ -3,6 +3,7 @@ name: Daily Script Execution
 on:
   schedule:
     - cron: '0 9 * * *'
+  workflow_dispatch:  # 允许手动触发
 
 jobs:
   run-script:
