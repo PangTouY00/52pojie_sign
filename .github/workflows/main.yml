@@ -25,4 +25,4 @@ jobs:
       - name: Run script
         env:
           PJ52_COOKIE: ${{ secrets.PJ52_COOKIE }}
-        run: python your_script.py
+        run: python main.py
